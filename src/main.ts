@@ -1,38 +1,12 @@
-import { HttpService, Injectable } from '@nestjs/common';
-import { existsSync, writeFileSync } from 'fs';
-import * as path from 'path';
+import axios from 'axios';
+import { Open } from 'unzipper';
 
-export interface FontFace {
-  family: string;
-  weight?: string;
-  style?: '' | 'normal' | 'italic' | 'oblique';
-}
-
-const GOOGLE_FONTS_DIRECTORY = `${process.cwd()}/fonts/google/`;
-
-async function downloadGoogleFont(
-  fontFace: FontFace,
-  directory = GOOGLE_FONTS_DIRECTORY,
-): Promise<string> {
-  let style;
-  switch (fontFace.style) {
-    case 'italic':
-      style = 'Italic';
-    default:
-      style = 'Regular';
-  }
-  const fontName = fontFace.family.replace(' ', '');
-  const fontFileName = `${fontName}-${style}.ttf`;
-  const fontPath = path.join(directory, fontFileName);
-  if (existsSync(fontPath)) {
-    return fontPath;
-  } else {
-    // https://stackoverflow.com/a/60275751/2179157
-    const url = `https://github.com/google/fonts/blob/master/ofl/${fontName.toLowerCase()}/${fontFileName}?raw=true`;
-    const { data } = await this.httpService.axiosRef.get(url, {
-      responseType: 'arraybuffer',
-    });
-    writeFileSync(fontPath, data);
-    return fontPath;
-  }
+export async function downloadGoogleFontFamily(family: string, path: string = process.cwd()) {
+  const { data } = await axios(`https://fonts.google.com/download`, {
+    responseType: 'arraybuffer',
+    params: { family },
+  });
+  const { files, extract } = await Open.buffer(data);
+  extract({ path, concurrency: 5 });
+  return files;
 }

@@ -3,5 +3,5 @@
 ## Install
 
 ```bash
-npm i download-google-font
+npm i google-font-family-downloader
 ```

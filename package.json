@@ -1,5 +1,5 @@
 {
-  "name": "download-google-font",
+  "name": "google-font-family-downloader",
   "version": "1.0.1",
   "description": "",
   "author": "Sajjad Shirazy <shirazy.sajjad@gmail.com>",
@@ -13,7 +13,6 @@
   "scripts": {
     "start:dev": "tsc -w",
     "build": "tsc",
-    "prepare": "npm run build",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
@@ -35,16 +34,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sajjad-shirazy/download-google-font"
+    "url": "https://github.com/sajjad-shirazy/google-font-family-downloader"
   },
-  "bugs": "https://github.com/sajjad-shirazy/download-google-font",
+  "bugs": "https://github.com/sajjad-shirazy/google-font-family-downloader",
   "peerDependencies": {
     "@nestjs/common": "^6.0.0"
   },
   "dependencies": {
-    "axios": "^0.21.0"
+    "axios": "^0.21.0",
+    "unzipper": "^0.10.11"
   },
   "devDependencies": {
+    "@types/unzipper": "^0.10.3",
     "@nestjs/common": "^6.0.0",
     "@nestjs/core": "^6.0.0",
     "@nestjs/platform-express": "^6.0.0",
