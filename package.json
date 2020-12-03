@@ -1,5 +1,5 @@
 {
-  "name": "download-google-font",
+  "name": "download-google-fonts",
   "version": "1.0.1",
   "description": "",
   "author": "Sajjad Shirazy <shirazy.sajjad@gmail.com>",
@@ -35,9 +35,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sajjad-shirazy/download-google-font"
+    "url": "https://github.com/sajjad-shirazy/download-google-fonts"
   },
-  "bugs": "https://github.com/sajjad-shirazy/download-google-font",
+  "bugs": "https://github.com/sajjad-shirazy/download-google-fonts",
   "peerDependencies": {
     "@nestjs/common": "^6.0.0"
   },
