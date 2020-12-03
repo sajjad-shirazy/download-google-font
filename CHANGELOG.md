@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.0.0 (2020-12-03)
+
+
+### Features
+
+* implementation ([9f408c3](https://github.com/sajjad-shirazy/download-google-font/commit/9f408c3cfd9e254878bc886adca00d7cb40361a6))
+
 ### [1.0.4](https://github.com/nestjsplus/nestjs-package-starter/compare/v1.0.3...v1.0.4) (2020-12-02)
 
 
