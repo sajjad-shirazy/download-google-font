@@ -1,11 +1,12 @@
 import { join } from 'path';
-import axios from 'axios';
 import { Open } from 'unzipper';
+import { moveSync, existsSync } from 'fs-extra';
+import axios from 'axios';
 
 const DEFAULT_FONT_PATH = join(process.cwd(), `fonts`);
 
 /**
- * 
+ *
  * @param family Google font family
  * @param path where to save fonts, by default `./fonts/`
  */
@@ -15,6 +16,11 @@ export async function downloadGoogleFontFamily(family: string, path: string = DE
     params: { family },
   });
   const { files, extract } = await Open.buffer(data);
-  extract({ path: join(path, family), concurrency: 5 });
+  path = join(path, family);
+  await extract({ path, concurrency: 5 });
+  const staticDirectory = join(path, 'static');
+  if (existsSync(staticDirectory)) {
+    moveSync(staticDirectory, path);
+  }
   return files;
 }
