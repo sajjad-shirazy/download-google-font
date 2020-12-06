@@ -20,7 +20,7 @@ export async function downloadGoogleFontFamily(family: string, path: string = DE
   await extract({ path, concurrency: 5 });
   const staticDirectory = join(path, 'static');
   if (existsSync(staticDirectory)) {
-    moveSync(staticDirectory, path);
+    moveSync(staticDirectory, path, { overwrite: true });
   }
   return files;
 }
