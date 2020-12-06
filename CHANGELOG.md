@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/sajjad-shirazy/google-font-family-downloader/compare/v1.2.1...v1.2.2) (2020-12-06)
+
+
+### Bug Fixes
+
+* no such file or directory ([6f9265a](https://github.com/sajjad-shirazy/google-font-family-downloader/commit/6f9265aa659bcdebb863ac1f47d047f7521a5a88))
+
 ### [1.2.1](https://github.com/sajjad-shirazy/google-font-family-downloader/compare/v1.2.0...v1.2.1) (2020-12-06)
 
 
