@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { Open } from 'unzipper';
-import { moveSync, existsSync } from 'fs-extra';
+import { moveSync, existsSync, readdirSync } from 'fs-extra';
 import axios from 'axios';
 
 const DEFAULT_FONT_PATH = join(process.cwd(), `fonts`);
@@ -20,7 +20,9 @@ export async function downloadGoogleFontFamily(family: string, path: string = DE
   await extract({ path, concurrency: 5 });
   const staticDirectory = join(path, 'static');
   if (existsSync(staticDirectory)) {
-    moveSync(staticDirectory, path, { overwrite: true });
+    readdirSync(staticDirectory).forEach(file => {
+      moveSync(join(staticDirectory, file), join(path, file), { overwrite: true });
+    });
   }
   return files;
 }
